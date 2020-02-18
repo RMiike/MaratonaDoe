@@ -17,16 +17,16 @@
     <!-- Configurações básicas-->
     <title> Doe sangue! Doe vida!</title>
     <!-- title serve para colocar um título na aba de navegação-->
-    <link rel="icon" type="image/png" href="assets/doesange.png" />
+    <link rel="icon" type="image/png" href="/assets/doesange.png" />
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    
+
 </head>
 
 <body>
     <!-- Aqui vem todo o conteúdo de determinada página-->
     <header>
-        <img class="logo" src="assets/logo.png" alt="Image de DOE">
+        <img class="logo" src="/assets/logo.png" alt="Image de DOE">
         <h2>A sua doação importa</h2>
         <p>Até 3 vidas com 1 doação</p>
         <p>Mais de 38.000 doações são necessárias todos os dias</p>
@@ -36,7 +36,7 @@
     </header>
     <section class="form hide">
         <h2>Entre na lista de doadores</h2>
-        <form action="/">
+        <form action="/" method="POST">
             <input type="text" name="nome" placeholder="Nome completo">
             <input type="text" name="email" placeholder="Email">
             <input type="text" name="tipoSanguineo" placeholder="Tipo sanguíneo">
@@ -46,27 +46,21 @@
 
     <main>
         <h2>Últimos <span> doadores</span></h2>
-
         <section class="doadores">
+
+            {% for doador in doadores %}
+
             <div class="doador">
-                <div class="sangue">AB+</div>
-                <p>Renato Alves</p>
+                <div class="sangue">{{doador.sangue}}</div>
+                <p>{{doador.nome}}</p>
             </div>
-            <div class="doador">
-                <div class="sangue">B+</div>
-                <p>José Maria</p>
-            </div>
-            <div class="doador">
-                <div class="sangue">A+</div>
-                <p>Daniel Silva</p>
-            </div>
-            <div class="doador">
-                <div class="sangue">O+</div>
-                <p>Daniel Lopes</p>
-            </div>
+
+            {%endfor%}
+
         </section>
     </main>
     <footer> Com ❤️ Rocketseat </footer>
-<script src="scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
+
 </html>
